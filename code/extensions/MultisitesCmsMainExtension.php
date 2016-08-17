@@ -5,7 +5,7 @@
 class MultisitesCMSMainExtension extends LeftAndMainExtension {
 
 	private static $allowed_actions = array(
-		'AddSiteForm'
+		'addSite'
 	);
 
 	public function getCMSTreeTitle() {
@@ -37,27 +37,24 @@ class MultisitesCMSMainExtension extends LeftAndMainExtension {
 
 
 	/**
-	 * AddSiteForm
-	 * @return Form
+	* LinkSiteAdd
+	 * @return String
 	 **/
-	public function AddSiteForm() {
-		return new Form(
-			$this->owner,
-			'AddSiteForm',
-			new FieldList(),
-			new FieldList(
-				FormAction::create('doAddSite', _t('Multisites.ADDSITE', 'Add Site'))
-					->addExtraClass('ss-ui-action-constructive')
-					->setAttribute('data-icon', 'add')
-			)
-		);
+	public function LinkSiteAdd($params = null) {
+	    $link = singleton("CMSMain")->Link('addSite');
+	
+	    if($params) {
+	        $link = Controller::join_links ($link, $params);
+	    }
+	
+	    return $link;
 	}
 
 
 	/**
-	 * AddSiteForm action to add a new site
+	 * addSite action to add a new site
 	 **/
-	public function doAddSite() {
+	public function addSite() {
 		$site = $this->owner->getNewItem('new-Site-0', false);
 		$site->write();
 
