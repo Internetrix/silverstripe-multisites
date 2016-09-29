@@ -87,7 +87,7 @@ class MultisitesCMSMainExtension extends LeftAndMainExtension {
 
 		$sites = Site::get()->sort(array(
 			'IsDefault' => 'DESC',
-			'Title'     => 'ASC'
+			'Sort'     => 'ASC'
 		));
 
 		$site = new DropdownField(

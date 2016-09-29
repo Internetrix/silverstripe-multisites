@@ -28,7 +28,7 @@ class Site extends Page implements HiddenClass, PermissionProvider {
         'RobotsTxt' => ''
 	);
 
-	private static $default_sort = '"Title"';
+// 	private static $default_sort = '"Title"';
 
 	private static $searchable_fields = array(
 		'Title'     => 'Title',

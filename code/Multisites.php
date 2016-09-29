@@ -76,7 +76,7 @@ class Multisites {
 		// Order the sites so ones with explicit schemes take priority in the
 		// map.
 		$sites = Site::get();
-		$sites->sort('Scheme', 'DESC');
+// 		$sites->sort('Scheme', 'DESC');		for compatibility of fluent
 
 		foreach($sites as $site) {
 			if($site->IsDefault) {
